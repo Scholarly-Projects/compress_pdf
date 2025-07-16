@@ -33,7 +33,7 @@ github_username: aweymo-ui
 # year or date published
 pub_year: 2025
 # location of code, the full url to your github repository
-source-code: https://github.com/aweymo-ui/compress_pdf
+source-code: https://github.com/Scholarly-Projects/compress_pdf
 
 ##########
 # URL VARIABLES [optional!!]
@@ -43,7 +43,7 @@ source-code: https://github.com/aweymo-ui/compress_pdf
 #
 # use url for the domain, e.g. https://evanwill.github.io
 # on gh-pages follow the pattern: https://username.github.io
-url: https://aweymo-ui.github.io/
+url: https://scholarly-projects.github.io
 # use baseurl to add subsection of the domain, e.g. /workshop-template-b
 # on gh-pages this is a / followed by the name of the repository
 # baseurl is your github repository's name prefixed with a /
