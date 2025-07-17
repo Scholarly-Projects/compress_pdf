@@ -5,18 +5,18 @@
 .env
 *.env
 
+# Ignore Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
 # Python artifacts
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .python-version
-
-# Jekyll build output
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
 
 # macOS system files
 .DS_Store
