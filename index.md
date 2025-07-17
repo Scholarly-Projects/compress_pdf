@@ -42,56 +42,19 @@ layout: page
 <script>
 // Determine backend URL based on environment
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const BACKEND_URL = isLocal 
-    ? 'http://localhost:5000/compress' 
-    : 'https://your-actual-backend-url.com/compress'; 
+const isGitHubPages = window.location.hostname === 'scholarly-projects.github.io';
+
+let BACKEND_URL;
+if (isLocal) {
+    BACKEND_URL = 'http://localhost:5000/compress';
+} else if (isGitHubPages) {
+    BACKEND_URL = 'https://compress-pdf.herokuapp.com/compress';
+} else {
+    BACKEND_URL = 'https://compress-pdf.herokuapp.com/compress';
+}
 
 document.getElementById('compress-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const files = document.getElementById('pdf-upload').files;
-  const level = document.querySelector('input[name="level"]:checked').value;
-  const spinner = document.getElementById('spinner');
-  const submitText = document.getElementById('submit-text');
-  const resultDiv = document.getElementById('result');
-  
-  // UI updates
-  spinner.classList.remove('d-none');
-  submitText.textContent = 'Processing...';
-  resultDiv.innerHTML = '<div class="alert alert-info">Compressing files...</div>';
-  
-  try {
-    const formData = new FormData();
-    formData.append('level', level);
-    for (let i = 0; i < files.length; i++) {
-      formData.append('pdfs', files[i]);
-    }
-    
-    const response = await fetch(BACKEND_URL, {
-      method: 'POST',
-      body: formData
-    });
-    
-    if (response.ok) {
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'compressed_pdfs.zip';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      resultDiv.innerHTML = '<div class="alert alert-success">Download started!</div>';
-    } else {
-      const error = await response.json();
-      resultDiv.innerHTML = `<div class="alert alert-danger">Error: ${error.error}</div>`;
-    }
-  } catch (error) {
-    resultDiv.innerHTML = `<div class="alert alert-danger">Network error: ${error.message}</div>`;
-  } finally {
-    spinner.classList.add('d-none');
-    submitText.textContent = 'Compress PDFs';
-  }
+  // ... rest of your code ...
 });
 </script>
 
