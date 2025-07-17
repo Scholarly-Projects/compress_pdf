@@ -1,0 +1,61 @@
+# Ignore virtual environment
+.venv/
+
+# Ignore environment variables
+.env
+*.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.python-version
+
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.swp
+
+# Dependency directories
+node_modules/
+bower_components/
+vendor/
+
+# Log files
+*.log
+logs/
+
+# IDE files
+.idea/
+.vscode/
+*.code-workspace
+
+# System files
+Thumbs.db
+ehthumbs.db
+
+# Compression artifacts
+*.zip
+*.compressed.pdf
+
+# Backend server files
+*.pid
+*.sock
+
+# Python packaging/distribution
+dist/
+build/
+*.egg-info/
